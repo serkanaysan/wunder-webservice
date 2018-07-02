@@ -1,6 +1,6 @@
-# Wunder Startup Stash Cronjob
+# Wunder Startup Stash Webservice
 
-> Cronjob with a NodeJS on Linux
+> Webservice with a NodeJS on Linux
 
 ## Usage
 
