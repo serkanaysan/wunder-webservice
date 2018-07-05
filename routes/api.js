@@ -14,7 +14,7 @@ init();
 
 router.get('/featured', async function (req, res) {
 	try {
-		var [rows, fields] = await connection.query("select title, alias, logoUrl from product where featured=true order by title desc", []);
+		var [rows, fields] = await connection.query("select p.title, p.alias, p.logoUrl, c.alias as category from product as p left join category as c on p.categoryId=c.id where p.featured=true order by title desc", []);
 		return res.status(200).json(rows);
 	} catch (e) {
 		return res.status(400).json({ "error": e });
