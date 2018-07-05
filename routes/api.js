@@ -32,7 +32,7 @@ router.get('/category', async function (req, res) {
 
 router.get('/category/:alias', async function (req, res) {
 	try {
-		var [rows, fields] = await connection.query("select p.title, p.logoUrl, p.alias from product as p left join category as c on p.categoryId=c.id where c.alias=? order by p.queue", [req.params.alias]);
+		var [rows, fields] = await connection.query("select p.title, p.logoUrl, p.alias, c.alias as category from product as p left join category as c on p.categoryId=c.id where c.alias=? order by p.queue", [req.params.alias]);
 		return res.status(200).json(rows);
 	} catch (e) {
 		return res.status(400).json({ "error": e });
